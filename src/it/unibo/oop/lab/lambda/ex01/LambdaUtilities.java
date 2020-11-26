@@ -64,6 +64,7 @@ public final class LambdaUtilities {
          */
         List<Optional<T>> returnList = new ArrayList<>();
 
+        //Optional.ofNullable.filter(pre) would be better
         list.forEach(t -> {
             if (pre.test(t)) {
                 returnList.add(Optional.of(t));

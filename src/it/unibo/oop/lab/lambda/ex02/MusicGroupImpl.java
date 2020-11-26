@@ -36,8 +36,8 @@ public final class MusicGroupImpl implements MusicGroup {
     @Override
     public Stream<String> orderedSongNames() {
         return this.songs.stream()
-                    .map(s -> s.getSongName())
-                    .sorted();
+                   .map(s -> s.getSongName()) //Song::getSongName
+                   .sorted();
     }
 
     //TODO done
@@ -77,7 +77,7 @@ public final class MusicGroupImpl implements MusicGroup {
         return this.songs.stream()
                          .filter(s -> s.getAlbumName().isPresent())
                          .filter(s -> s.getAlbumName().get().equals(albumName))
-                         .mapToDouble(s -> s.getDuration())
+                         .mapToDouble(s -> s.getDuration()) //Song::getDuration
                          .average();
     }
 
@@ -90,7 +90,7 @@ public final class MusicGroupImpl implements MusicGroup {
                                  return s1;
                              }
                              return s2;
-                         })
+                         }) //I could  use collect
                          .map(s -> s.getSongName());
     }
 
@@ -109,7 +109,7 @@ public final class MusicGroupImpl implements MusicGroup {
                              return s2;
                          })
                          .map(s -> s.getKey())
-                         .get();
+                         .orElse(Optional.empty()); //Not the best solution
     }
 
     private static final class Song {

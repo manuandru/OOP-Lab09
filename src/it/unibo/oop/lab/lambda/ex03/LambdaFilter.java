@@ -46,7 +46,7 @@ public final class LambdaFilter extends JFrame {
 
         // 3. Count the number of lines
         COUNT_LINES("Count lines", s -> {
-            return "Lines: " + s.lines()
+            return "Lines: " + s.lines() //better filter \n
                                 .count();
         }),
 
