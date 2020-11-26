@@ -52,14 +52,14 @@ public final class LambdaFilter extends JFrame {
 
         // 4. List all the words in alphabetical order
         ORDER_WORD("Order word", s -> {
-            return Arrays.stream(s.split("[\n\r\s]+"))
+            return Arrays.stream(s.split("[\\n\\r\\s]+"))
                          .sorted()
                          .reduce((s1, s2) -> s1 + "\n" + s2).orElse("");
         }),
 
         // 5. Write the count for each word TODO
         COUNT_WORD("Count word", s -> {
-            return Arrays.stream(s.split("[\n\r\s]+"))
+            return Arrays.stream(s.split("[\\n\\r\\s]+"))
                     .collect(Collectors.groupingBy(string -> string, Collectors.counting()))
                     .entrySet()
                     .stream()
